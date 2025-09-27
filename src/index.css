@@ -1,0 +1,133 @@
+/* Fondo estrellado animado */
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle at 20% 20%, #000 20%, #050529 100%);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Efecto estrellas parpadeantes */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+    animation: moveStars 200s linear infinite;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+@keyframes moveStars {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-100px, -100px);
+    }
+}
+
+/* Header */
+.home__header h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #ffe81f;
+    text-shadow: 0 0 15px #ffe81f, 0 0 30px #ffcc00;
+    margin: 2rem 0;
+    letter-spacing: 2px;
+}
+
+/* Secciones */
+.block {
+    margin: 3rem 0;
+}
+
+.block__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.block__title h2 {
+    color: #ffe81f;
+    text-shadow: 0 0 10px #ffe81f;
+}
+
+/* Carrusel de cards */
+.cards {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory;
+}
+
+/* Tarjetas */
+.card {
+    background: rgba(20, 20, 40, 0.95);
+    border: 1px solid #ffe81f;
+    border-radius: 10px;
+    padding: 1rem;
+    min-width: 220px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 0 20px #ffe81f, 0 0 40px #ffcc00;
+}
+
+.card__title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #ffe81f;
+}
+
+.card__meta {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Acciones */
+.card__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ffe81f;
+    border-radius: 5px;
+    background: transparent;
+    color: #ffe81f;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #ffe81f;
+    color: #000;
+    box-shadow: 0 0 10px #ffe81f;
+}
+
+.btn--ghost {
+    font-weight: bold;
+}
+
+/* Etiquetas */
+.tag {
+    background: #ffe81f;
+    color: #000;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
