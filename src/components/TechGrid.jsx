@@ -6,9 +6,9 @@ export default function TechGrid(){
   useEffect(()=>{ actions.loadTechs(); }, []);
 
   return (
-    <section className="my-5">
-      <div className="container">
-        <h2 className="section-title">Tecnologías</h2>
+    <section id="tecnologias" className="my-5">
+  <div className="container-narrow">
+    <h2 className="section-title">TECNOLOGÍAS</h2>
         <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3">
           {store.techs.map(t=>(
             <div className="col" key={t.id}>

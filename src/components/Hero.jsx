@@ -1,11 +1,11 @@
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
-export default function Hero(){
+export default function Hero() {
   const { dispatch } = useGlobalReducer();
 
   return (
-    <section className="hero my-4">
-      <div className="container">
+    <section id="top" className="hero my-4 section">
+      <div className="container-narrow">
         <div className="row align-items-center g-4">
           <div className="col-12 col-lg-6 order-2 order-lg-1">
             <span className="tag">Portafolio · 2025</span>
@@ -20,8 +20,16 @@ export default function Hero(){
             </p>
 
             <div className="d-flex flex-wrap gap-2">
-              <a className="btn btn-light" href="/Patricia_Alvarez_CV.pdf" download>Descargar CV</a>
-              <button className="btn btn-ghost" onClick={()=>dispatch({type:"openCV"})}>
+              <a
+                className="btn btn-light"
+                href="https://drive.google.com/uc?export=download&id=1thS8XpNQfm3dktvUke_8ccksko_lIFPt"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Descargar CV
+              </a>
+
+              <button className="btn btn-ghost" onClick={() => dispatch({ type: "openCV" })}>
                 Ver CV resumido
               </button>
             </div>
@@ -30,12 +38,13 @@ export default function Hero(){
           <div className="col-12 col-lg-6 text-center order-1 order-lg-2">
             <img
               className="photo"
-              src="src/assets/img/Patricia Alvarez.jpg" 
+              src="src/assets/img/Patricia Alvarez.jpg"
               alt="Patricia Álvarez"
             />
           </div>
         </div>
       </div>
     </section>
+    
   );
 }
