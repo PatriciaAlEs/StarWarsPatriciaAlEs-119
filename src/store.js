@@ -1,49 +1,34 @@
-export const initialStore=()=>{
-  return{
-    message: null,
+// 👇 imports SIEMPRE arriba del todo
+import { actions } from "./services/apiServices.js";
 
-    personajes: [],
-    planetas: [],
-    vehiculos: [],
+export const initialStore = {
+  baseURL: import.meta.env.VITE_API_URL || "http://127.0.0.1:5000",
+  token: localStorage.getItem("token") || null,
+  user: JSON.parse(localStorage.getItem("user") || "null"),
+  techs: [],
+  projects: [],
+  ui: { cvOpen:false, authOpen:false, authMode:"register", projectOpen:null }
+};
 
-    detalles: {},
-
-    favoritos: [],
-    
+export function storeReducer(state, action) {
+  switch (action.type) {
+    case "setTechs": return { ...state, techs: action.payload };
+    case "setProjects": return { ...state, projects: action.payload };
+    case "openCV": return { ...state, ui:{...state.ui, cvOpen:true}};
+    case "closeCV": return { ...state, ui:{...state.ui, cvOpen:false}};
+    case "openAuth": return { ...state, ui:{...state.ui, authOpen:true, authMode: action.mode || "register"}};
+    case "closeAuth": return { ...state, ui:{...state.ui, authOpen:false}};
+    case "openProject": return { ...state, ui:{...state.ui, projectOpen: action.id }};
+    case "closeProject": return { ...state, ui:{...state.ui, projectOpen:null }};
+    case "login":
+      localStorage.setItem("token", action.payload.token);
+      localStorage.setItem("user", JSON.stringify(action.payload.user));
+      return { ...state, token: action.payload.token, user: action.payload.user, ui:{...state.ui, authOpen:false}};
+    case "logout":
+      localStorage.removeItem("token"); localStorage.removeItem("user");
+      return { ...state, token:null, user:null };
+    default: return state;
   }
 }
 
-export default function storeReducer(store, action = {}) {
-  switch(action.type){
-    
-    case 'GET_PEOPLE':    return { ...store, personajes: action.payload };
-    case 'GET_PLANETS':   return { ...store, planetas: action.payload };
-    case 'GET_VEHICLES':  return { ...store, vehiculos: action.payload };
-
-    
-    case 'GET_DETALLE':
-      return {
-        ...store,
-        detalles: {
-          ...store.detalles,
-          [action.payload.tipo]: action.payload.data
-        }
-      };
-
-    case 'SET_FAVORITO':
-      return {  
-        ...store,
-        favoritos: store.favoritos.includes(action.payload) ? 
-        store.favoritos.filter(item => item !== action.payload) : 
-        [...store.favoritos, action.payload]
-      };
-
-    case 'DELETE_FAVORITO':
-      return {
-        ...store,
-        favoritos: store.favoritos.filter(item => item !== action.payload)
-      };
-    default:
-      throw Error('Unknown action.');
-  }    
-}
+export { actions };

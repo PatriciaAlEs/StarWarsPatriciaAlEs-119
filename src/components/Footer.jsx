@@ -1,11 +1,15 @@
-export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center">
-		<p>
-			Check the <a target="_blank" href="https://4geeks.com/docs/start/start-react-advanced-project">template documentation</a> <i className="fa-solid fa-file"></i> for help.
-		</p>
-		<p>
-			Made with <i className="fa fa-heart text-danger" /> by{" "}
-			<a href="http://www.4geeksacademy.com">4Geeks Academy</a>
-		</p>
-	</footer>
-);
+// Footer.jsx
+export default function Footer(){
+  return (
+    <footer className="site-footer py-4 mt-5">
+      <div className="container d-flex flex-column flex-md-row justify-content-between gap-2 small">
+        <span>© {new Date().getFullYear()} Patricia Álvarez</span>
+        <div className="d-flex gap-3">
+          <a href="mailto:tuemail@dominio.com">Contacto</a>
+          <a href="https://github.com/PatriciaAlEs" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/..." target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
