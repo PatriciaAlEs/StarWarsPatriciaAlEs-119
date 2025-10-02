@@ -113,3 +113,18 @@ html,body{ background:var(--mauve); color:var(--ink); }
   background:var(--green2);
   color:#fff;
 }
+
+.tech-card{
+  background: var(--white);
+  border-radius:14px;
+  padding:1rem;
+  text-align:center;
+  box-shadow:0 8px 18px rgba(0,0,0,.06);
+  transition: transform .2s ease;
+}
+.tech-card:hover{ transform:translateY(-4px); }
+.tech-icon{
+  height:48px;
+  width:auto;
+  max-width:100%;
+}

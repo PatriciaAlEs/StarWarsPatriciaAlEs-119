@@ -1,41 +1,62 @@
-from app import app, db
+from extensions import db
+from app import create_app
 from models import Tech, Project, ProjectImage
 
-demo_techs = [
-    ("React", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"),
-    ("Flask", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"),
-    ("SQLAlchemy", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg"),
-    ("Bootstrap", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"),
-    ("JWT", "https://cdn-icons-png.flaticon.com/512/2913/2913132.png"),
-    ("PostgreSQL", "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"),
-]
+app = create_app()
 
 with app.app_context():
-    db.drop_all(); db.create_all()
-    for name, icon in demo_techs:
-        db.session.add(Tech(name=name, icon_url=icon))
+    db.drop_all()
+    db.create_all()
 
-    p1 = Project(
-        title="Contact List (React + API)",
-        short_desc="CRUD con fetch, Flux y validaciones.",
-        long_desc="Implementa agenda con arquitectura Flux, endpoints REST y tests básicos.",
-        cover_url="https://images.unsplash.com/photo-1494173853739-c21f58b16055?q=80&w=1200&auto=format&fit=crop",
+    # --- Tecnologías ---
+    techs = [
+        Tech(name="HTML5", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"),
+    Tech(name="CSS3", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"),
+    Tech(name="JavaScript", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"),
+    Tech(name="React", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"),
+    Tech(name="Bootstrap", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"),
+    Tech(name="Python", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"),
+    Tech(name="Flask", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"),
+    Tech(name="SQLAlchemy", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg"),
+    Tech(name="PostgreSQL", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"),
+    Tech(name="JWT", icon_url="https://jwt.io/img/pic_logo.svg"),
+    Tech(name="WordPress", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg"),
+    Tech(name="WooCommerce", icon_url="https://woocommerce.com/wp-content/themes/woo/images/logo-woocommerce.svg"),
+    Tech(name="Git", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"),
+    Tech(name="GitHub", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"),
+    ]
+    db.session.add_all(techs)
+
+    # --- Proyectos ---
+    portfolio = Project(
+        title="Mi Portfolio",
+        short_desc="Portfolio personal con React y Flask",
+        long_desc="Un sitio web responsive con autenticación JWT, base de datos en SQLAlchemy y diseño en Bootstrap.",
+        cover_url="https://via.placeholder.com/600x300.png?text=Portfolio",
         video_url="https://www.youtube.com/embed/dQw4w9WgXcQ"
     )
-    p1.images = [ProjectImage(url=u) for u in [
-        "https://picsum.photos/seed/p1a/800/500",
-        "https://picsum.photos/seed/p1b/800/500",
-        "https://picsum.photos/seed/p1c/800/500",
-    ]]
+    portfolio.images = [
+        ProjectImage(url="https://via.placeholder.com/400x200.png?text=Portfolio+1"),
+        ProjectImage(url="https://via.placeholder.com/400x200.png?text=Portfolio+2")
+    ]
 
-    p2 = Project(
-        title="E-commerce WP + Woo",
-        short_desc="Catálogo, carrito y pasarela.",
-        long_desc="Tienda con Elementor, plantillas personalizadas y optimización Core Web Vitals.",
-        cover_url="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop",
+    habit_tracker = Project(
+        title="Habit Tracker",
+        short_desc="App para seguimiento de hábitos",
+        long_desc="Aplicación React para registrar hábitos diarios, con persistencia en LocalStorage.",
+        cover_url="https://via.placeholder.com/600x300.png?text=Habit+Tracker",
         video_url="https://www.youtube.com/embed/dQw4w9WgXcQ"
     )
 
-    db.session.add_all([p1, p2])
+    hooboo = Project(
+        title="Hooboo",
+        short_desc="Plataforma social ficticia",
+        long_desc="Proyecto colaborativo con autenticación, publicaciones y comentarios.",
+        cover_url="https://via.placeholder.com/600x300.png?text=Hooboo",
+        video_url="https://www.youtube.com/embed/dQw4w9WgXcQ"
+    )
+
+    db.session.add_all([portfolio, habit_tracker, hooboo])
     db.session.commit()
-    print("✅ Base con datos demo creada")
+
+    print("✅ Base de datos poblada con tecnologías y proyectos")

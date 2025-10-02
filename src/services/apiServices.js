@@ -22,5 +22,16 @@ export const actions = (get, set) => ({
         });
         if (!r.ok) throw new Error("Login fallido");
         const data = await r.json(); set({ type: "login", payload: data });
+    },
+    async loadTechs() {
+        const r = await fetch(`${get().baseURL}/techs`);
+        const data = await r.json();
+        set({ type: "setTechs", payload: data });
+    },
+    async loadProjects() {
+        const r = await fetch(`${get().baseURL}/projects`);
+        const data = await r.json();
+        set({ type: "setProjects", payload: data });
     }
 });
+

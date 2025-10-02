@@ -1,6 +1,7 @@
-from app import db
+# api/models.py
 from datetime import datetime
 from flask_bcrypt import generate_password_hash, check_password_hash
+from extensions import db  # 👈 CAMBIO: antes era from app import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -20,7 +21,6 @@ class Tech(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
     icon_url = db.Column(db.String(255))
-
     def serialize(self): return {"id":self.id,"name":self.name,"icon_url":self.icon_url}
 
 class Project(db.Model):
@@ -31,7 +31,6 @@ class Project(db.Model):
     cover_url = db.Column(db.String(255))
     video_url = db.Column(db.String(255))
     images = db.relationship("ProjectImage", backref="project", cascade="all,delete")
-
     def serialize(self):
         return {
             "id": self.id, "title": self.title,

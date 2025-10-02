@@ -2,7 +2,7 @@
 import { actions } from "./services/apiServices.js";
 
 export const initialStore = {
-  baseURL: import.meta.env.VITE_API_URL || "http://127.0.0.1:5000",
+  baseURL: import.meta.env.VITE_API_URL || "http://127.0.0.1:5000/api",
   token: localStorage.getItem("token") || null,
   user: JSON.parse(localStorage.getItem("user") || "null"),
   techs: [],
