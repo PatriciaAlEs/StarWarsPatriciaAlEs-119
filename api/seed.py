@@ -44,7 +44,7 @@ with app.app_context():
         title="Habit Tracker",
         short_desc="App para seguimiento de hábitos",
         long_desc="Aplicación React para registrar hábitos diarios, con persistencia en LocalStorage.",
-        cover_url="https://via.placeholder.com/600x300.png?text=Habit+Tracker",
+        cover_url="http://127.0.0.1:5000/static/img/habit_tracker.jpeg",
         video_url="https://www.youtube.com/embed/dQw4w9WgXcQ"
     )
 
@@ -52,7 +52,7 @@ with app.app_context():
         title="Hooboo",
         short_desc="Plataforma social ficticia",
         long_desc="Proyecto colaborativo con autenticación, publicaciones y comentarios.",
-        cover_url="https://via.placeholder.com/600x300.png?text=Hooboo",
+        cover_url="http://127.0.0.1:5000/static/img/HooBoo.png",
         video_url="https://www.youtube.com/embed/dQw4w9WgXcQ"
     )
 
