@@ -20,8 +20,6 @@ with app.app_context():
     Tech(name="SQLAlchemy", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg"),
     Tech(name="PostgreSQL", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"),
     Tech(name="JWT", icon_url="https://jwt.io/img/pic_logo.svg"),
-    Tech(name="WordPress", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg"),
-    Tech(name="WooCommerce", icon_url="https://woocommerce.com/wp-content/themes/woo/images/logo-woocommerce.svg"),
     Tech(name="Git", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"),
     Tech(name="GitHub", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"),
     ]

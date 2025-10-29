@@ -1,0 +1,14 @@
+{
+  "api": {
+    "us": "api"
+  },
+  "node_modules": {
+    "us": "node_modules"
+  },
+  "src": {
+    "us": "src"
+  },
+  "tempnpm-cache": {
+    "us": "tempnpm-cache"
+  }
+}

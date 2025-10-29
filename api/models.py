@@ -15,13 +15,24 @@ class User(db.Model):
     def check_password(self,p): return check_password_hash(self.password_hash, p)
 
     def serialize(self):
-        return {"id":self.id,"name":self.name,"email":self.email,"kind":self.kind}
+        return {
+            "id":self.id,
+            "name":self.name,
+            "email":self.email,
+            "kind":self.kind
+            }
 
 class Tech(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
     icon_url = db.Column(db.String(255))
-    def serialize(self): return {"id":self.id,"name":self.name,"icon_url":self.icon_url}
+    
+    def serialize(self): 
+        return {
+            "id":self.id,
+            "name":self.name,
+            "icon_url":self.icon_url
+            }
 
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -31,6 +42,7 @@ class Project(db.Model):
     cover_url = db.Column(db.String(255))
     video_url = db.Column(db.String(255))
     images = db.relationship("ProjectImage", backref="project", cascade="all,delete")
+    
     def serialize(self):
         return {
             "id": self.id, "title": self.title,
