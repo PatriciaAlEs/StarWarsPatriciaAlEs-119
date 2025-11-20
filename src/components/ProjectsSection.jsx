@@ -2,23 +2,25 @@
 import { useEffect } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import ProjectCard from "./ProjectCard.jsx";
+import ProjectDetailModal from "./ProjectDetailModal.jsx";
 
 export default function ProjectsSection() {
   const { store, actions } = useGlobalReducer();
   useEffect(() => { actions.loadProjects(); }, []);
 
   return (
-    <section id="proyectos" className="section projects-wrap my-5">
+    <section id="proyectos" className="section projects-wrap my-12">
       <div className="container-narrow">
-        <h2 className="section-title">PROYECTOS</h2>
-        <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+        <h2 className="section-title mb-8">PROYECTOS</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {store.projects.map(p => (
-            <div className="col" key={p.id}>
+            <div key={p.id} className="flex">
               <ProjectCard project={p} />
             </div>
           ))}
         </div>
       </div>
+      <ProjectDetailModal />
     </section>
   );
 }

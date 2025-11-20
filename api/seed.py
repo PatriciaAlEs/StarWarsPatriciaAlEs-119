@@ -10,18 +10,18 @@ with app.app_context():
 
     # --- Tecnologías ---
     techs = [
-        Tech(name="HTML5", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"),
-    Tech(name="CSS3", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"),
-    Tech(name="JavaScript", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"),
-    Tech(name="React", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"),
-    Tech(name="Bootstrap", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"),
-    Tech(name="Python", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"),
-    Tech(name="Flask", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"),
-    Tech(name="SQLAlchemy", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg"),
-    Tech(name="PostgreSQL", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"),
-    Tech(name="JWT", icon_url="https://jwt.io/img/pic_logo.svg"),
-    Tech(name="Git", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"),
-    Tech(name="GitHub", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"),
+        Tech(name="HTML5", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", documentation_url="https://developer.mozilla.org/en-US/docs/Web/HTML"),
+        Tech(name="CSS3", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", documentation_url="https://developer.mozilla.org/en-US/docs/Web/CSS"),
+        Tech(name="JavaScript", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", documentation_url="https://developer.mozilla.org/en-US/docs/Web/JavaScript"),
+        Tech(name="React", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", documentation_url="https://react.dev/"),
+        Tech(name="Bootstrap", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg", documentation_url="https://getbootstrap.com/docs/"),
+        Tech(name="Python", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", documentation_url="https://docs.python.org/3/"),
+        Tech(name="Flask", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg", documentation_url="https://flask.palletsprojects.com/"),
+        Tech(name="SQLAlchemy", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg", documentation_url="https://docs.sqlalchemy.org/"),
+        Tech(name="PostgreSQL", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", documentation_url="https://www.postgresql.org/docs/"),
+        Tech(name="JWT", icon_url="https://jwt.io/img/pic_logo.svg", documentation_url="https://jwt.io/introduction"),
+        Tech(name="Git", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", documentation_url="https://git-scm.com/doc"),
+        Tech(name="GitHub", icon_url="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", documentation_url="https://docs.github.com/"),
     ]
     db.session.add_all(techs)
 

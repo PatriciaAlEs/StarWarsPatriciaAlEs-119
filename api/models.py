@@ -26,12 +26,14 @@ class Tech(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
     icon_url = db.Column(db.String(255))
+    documentation_url = db.Column(db.String(255))
     
     def serialize(self): 
         return {
             "id":self.id,
             "name":self.name,
-            "icon_url":self.icon_url
+            "icon_url":self.icon_url,
+            "documentation_url":self.documentation_url
             }
 
 class Project(db.Model):
@@ -55,3 +57,20 @@ class ProjectImage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     url = db.Column(db.String(255))
     project_id = db.Column(db.Integer, db.ForeignKey("project.id"))
+
+
+class ContactMessage(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(120), nullable=False)
+    user_email = db.Column(db.String(120), nullable=False)
+    subject = db.Column(db.String(255), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "user_name": self.user_name,
+            "user_email": self.user_email,
+            "subject": self.subject,
+            "message": self.message,
+        }

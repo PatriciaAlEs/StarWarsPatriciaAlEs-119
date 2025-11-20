@@ -3,6 +3,10 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy  
 from flask_jwt_extended import JWTManager
 import os
+from dotenv import load_dotenv
+
+# Cargar variables de entorno desde .env
+load_dotenv()
 
 from extensions import db  # 👈 usa la instancia común
 

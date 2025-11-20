@@ -1,43 +1,36 @@
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
-
 export default function Hero() {
-  const { dispatch } = useGlobalReducer();
 
   return (
-    <section id="top" className="hero my-4 section">
+    <section id="top" className="hero my-6 section">
       <div className="container-narrow">
-        <div className="row align-items-center g-4">
-          <div className="col-12 col-lg-6 order-2 order-lg-1">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="order-2 lg:order-1 space-y-4">
             <span className="tag">Portafolio · 2025</span>
             <h1 className="title mt-2">PORTAFOLIO</h1>
-            <p className="subtitle">
+            <p className="text-lg md:text-xl font-semibold text-white/90">
               Full-Stack Developer — React · Flask · SQLAlchemy · JWT · WooCommerce
             </p>
 
-            <p className="mt-3 mb-4">
+            <p className="text-white/80 leading-relaxed">
               Construyo experiencias web claras, rápidas y mantenibles. Aquí verás
               proyectos reales, stack técnico y casos prácticos.
             </p>
 
-            <div className="d-flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3 pt-2">
               <a
-                className="btn btn-light"
+                className="inline-flex items-center px-6 py-3 bg-white text-green-hero font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
                 href="https://drive.google.com/uc?export=download&id=1thS8XpNQfm3dktvUke_8ccksko_lIFPt"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Descargar CV
               </a>
-
-              <button className="btn btn-ghost" onClick={() => dispatch({ type: "openCV" })}>
-                Ver CV resumido
-              </button>
             </div>
           </div>
 
-          <div className="col-12 col-lg-6 text-center order-1 order-lg-2">
+          <div className="order-1 lg:order-2 text-center">
             <img
-              className="photo"
+              className="photo mx-auto"
               src="src/assets/img/Patricia Alvarez.jpg"
               alt="Patricia Álvarez"
             />
@@ -45,6 +38,6 @@ export default function Hero() {
         </div>
       </div>
     </section>
-    
+
   );
 }
